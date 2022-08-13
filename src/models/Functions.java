@@ -4,7 +4,13 @@
  */
 package models;
 
+import static alert.InsertSeach.txt_inserach;
+import static alert.Replace.txt_inreplace;
+import static alert.Replace.txt_inreplace1;
+import java.awt.Color;
+import java.awt.List;
 import java.text.Normalizer;
+import java.util.ArrayList;
 
 /**
  *
@@ -145,6 +151,59 @@ public class Functions {
              frm_start.lbl_cantidad_par.setText(Integer.toString(sumPar));
              frm_start.lbl_cantidad_impar.setText(Integer.toString(sumImp));
          }
+         
+         
+          public static void Buscar(){
+              
+              String valor = frm_start.txt_entrada.getText();
+        String cadenaNormalize = Normalizer.normalize(valor, Normalizer.Form.NFD);   
+        String valor2 = cadenaNormalize.replaceAll("[^\\p{ASCII}]", "");
+        //System.out.println("Resultado: " + valor2);
+       //String[] chararray = valor2.split("");
+       //String[] valorarray = valor2.split(" ");
+       String s= valor2.toLowerCase();
+       
+       String find = txt_inserach.getText();
+      
+       
+       
+       int times =0;
+       for (int i = 0; i < s.length(); i++){
+           if (s.substring(i).startsWith(find)){
+               times++;
+               
+           }
+       }
+       System.out.println(times);
+       alert.InsertSeach.lbl_conc.setText(Integer.toString(times));
+       
+
+
+          }
+          
+          public static void replace(){
+       
+   
+   String valor = frm_start.txt_entrada.getText();
+        String cadenaNormalize = Normalizer.normalize(valor, Normalizer.Form.NFD);   
+        String valor2 = cadenaNormalize.replaceAll("[^\\p{ASCII}]", "");
+        //System.out.println("Resultado: " + valor2);
+       //String[] chararray = valor2.split("");
+       //String[] valorarray = valor2.split(" ");
+       String s= valor2.toLowerCase();
+       
+       String find = txt_inreplace.getText();
+       String rep = txt_inreplace1.getText();
+       
+    
+       
+       for (int i = 0; i <find.length(); i++){
+          // s = s.replace(abecedario[i], traductor[i]);
+           s = s.replace(find, rep);
+       }
+       frm_start.txt_entrada.setText(s);
+    
+   }
          
          
     

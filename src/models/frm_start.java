@@ -5,6 +5,8 @@
 package models;
 
 import alert.AlertInformation;
+import alert.InsertSeach;
+import alert.Replace;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
@@ -357,9 +359,19 @@ public class frm_start extends javax.swing.JFrame {
         jm_editar.add(jm_pegar);
 
         jm_buscar.setText("Buscar");
+        jm_buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jm_buscarActionPerformed(evt);
+            }
+        });
         jm_editar.add(jm_buscar);
 
         jm_remplazar.setText("Reemplazar");
+        jm_remplazar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jm_remplazarActionPerformed(evt);
+            }
+        });
         jm_editar.add(jm_remplazar);
 
         mb_menubar.add(jm_editar);
@@ -558,6 +570,18 @@ public class frm_start extends javax.swing.JFrame {
         conversion.traductor();*/
        encode.Decode(valor);
     }//GEN-LAST:event_btb_revelarActionPerformed
+
+    private void jm_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jm_buscarActionPerformed
+        // TODO add your handling code here:
+        alert.InsertSeach a = new InsertSeach(this, true);
+        a.setVisible(true);
+    }//GEN-LAST:event_jm_buscarActionPerformed
+
+    private void jm_remplazarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jm_remplazarActionPerformed
+        // TODO add your handling code here:
+        alert.Replace a = new Replace(this, true);
+        a.setVisible(true);
+    }//GEN-LAST:event_jm_remplazarActionPerformed
 
     /**
      * @param args the command line arguments
